@@ -1,0 +1,12 @@
+{
+    "livecode.defaultImports": [
+        ""
+    ],
+    "livecode.customCSS": "",
+    "livecode.defaultFilterVars": [],
+    "livecode.defaultFilterTypes": [
+        "<class 'module'>",
+        "<class 'function'>"
+    ],
+    "jupyter.jupyterCommandLineArguments": []
+}
