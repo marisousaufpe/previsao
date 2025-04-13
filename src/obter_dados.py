@@ -1,7 +1,10 @@
-#%% First cell
+#%% 
 
 import pandas as pd
 import os
+
+nome_projeto = 'previsao'
+
 
 def obter_dados_de_arquivo(nome_arquivo):
 
@@ -16,11 +19,14 @@ def obter_dados_de_arquivo(nome_arquivo):
                           Retorna None se houver algum erro ao ler o arquivo.
     """
 
-    caminho_arquivo = os.path.dirname(os.path.abspath(__file__)) # Retorna o diretório sem o nome do arquivo do script
-    caminho_arquivo = os.path.basename(caminho_arquivo) # Retorna apenas o nome da última pasta
-    caminho_arquivo = os.getcwd().split(caminho_arquivo)[0] # Retira o nome da última pasta
-    caminho_arquivo = 'dados/' + nome_arquivo # Adiciona a pasta dados ao diretório e o nome do arquivo a ser importado
-    print(caminho_arquivo)
+    """
+    Este trecho garante que o script volte uma pasta e entre na pasta dados/
+    """
+    #caminho_arquivo = os.path.dirname(os.path.abspath(__file__)) # Retorna o diretório sem o nome do arquivo do script
+    #caminho_arquivo = os.path.basename(caminho_arquivo) # Retorna apenas o nome da última pasta
+    #caminho_arquivo = os.getcwd().split(caminho_arquivo)[0] # Retira o nome da última pasta
+
+    caminho_arquivo = os.getcwd().split(nome_projeto)[0] + nome_projeto + '/dados/' + nome_arquivo
 
     try:
         dados = pd.read_parquet(caminho_arquivo)
@@ -43,11 +49,5 @@ if __name__ == "__main__":
     if dados_obtidos is not None:
         print("\nPrimeiras linhas dos dados obtidos:")
         print(dados_obtidos.head())  # Mostra as primeiras linhas da tabela de dados
-
-
-# %%
-import os
-print('Hello world')
-print(f'{os.getcwd()}')
 
 
