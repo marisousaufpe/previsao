@@ -47,7 +47,15 @@ if __name__ == "__main__":
     dados_obtidos = obter_dados_de_arquivo(nome_arquivo)
 
     if dados_obtidos is not None:
-        print("\nPrimeiras linhas dos dados obtidos:")
-        print(dados_obtidos.head())  # Mostra as primeiras linhas da tabela de dados
+        #print("\nPrimeiras linhas dos dados obtidos:")
+        #print(dados_obtidos.head())  # Mostra as primeiras linhas da tabela de dados
+
+        print('\nVariáveis do arquivo: \n')
+        for item in dados_obtidos.columns:
+            print(item)
 
 
+import matplotlib.pyplot as plt
+
+plt.plot(dados_obtidos.index, dados_obtidos.wind_speed_1_ave)
+plt.show()
